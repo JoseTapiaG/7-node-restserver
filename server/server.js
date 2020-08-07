@@ -8,31 +8,16 @@ const app = express();
 // Body parser para input JSON
 app.use(bodyParser.json());
 
-app.get('/usuarios', (req, res) => {
-    res.json('get Usuario');
-})
-
-app.post('/usuarios', (req, res) => {
+app.post('/test', (req, res) => {
 
     let body = req.body;
+    console.log(body);
 
-    if (!body.nombre) {
-        res.status(400).json({
-            ok: false,
-            mensaje: 'El nombre es necesario'
-        });
-        return;
-    }
+    
 
     res.json({
-        metodo: 'Post',
-        body
+        body: 'OK'
     });
-})
-
-app.put('/usuarios/:id', (req, res) => {
-    let id = req.params.id;
-    res.json(`put Usuario ${id}`);
 })
 
 console.log('');
